@@ -2,11 +2,16 @@ from playwright.sync_api import sync_playwright
 import requests
 import json
 import os
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
 
 #== CONFIGURATION ==
 url = "https://openrouter.ai/api/v1/chat/completions"
 api_key = os.getenv("QWEN_API_KEY")
 web_url = os.getenv("WEB_URL")
+save_file = True
 
 #== FUNCTIONS ==
 def get_data(prompt):
@@ -96,6 +101,11 @@ Now process this HTML:
         lines = content.strip().splitlines()
         for line in lines:
             print(line)
+
+        #Optional: Save to file
+        if save_file:
+            with open("extracted_books.txt", "w") as f:
+                f.write(content.strip())   
 
     except KeyError:
         print("Error: Unexpected response format from API")
