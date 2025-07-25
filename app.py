@@ -8,23 +8,24 @@ from dotenv import load_dotenv
 load_dotenv()
 
 #== CONFIGURATION ==
-url = "https://openrouter.ai/api/v1/chat/completions"
+url_api = "https://openrouter.ai/api/v1/chat/completions"
 api_key = os.getenv("QWEN_API_KEY")
 web_url = os.getenv("WEB_URL")
 save_file = True
 
 #== FUNCTIONS ==
+
 def get_data(prompt):
     response = requests.post(
-        url=url,
+        url=url_api,
         headers={
-            "Authorization": "Bearer " + api_key,
+            "Authorization": f"Bearer {api_key}",
             "Content-Type": "application/json",
-            "HTTP-Referer": web_url,  # Optional
+            "HTTP-Referer": "https://shop.mtwyouth.org/collections/literature-fiction-new",  # Optional
             "X-Title": "Book Scraper",  # Optional
         },
         data=json.dumps({
-            "model": "qwen/qwen3-coder:free",
+            "model": "deepseek/deepseek-chat-v3-0324:free",
             "messages": [
                 {
                     "role": "system",
