@@ -6,7 +6,7 @@ import os
 #== CONFIGURATION ==
 url = "https://openrouter.ai/api/v1/chat/completions"
 api_key = os.getenv("QWEN_API_KEY")
-web_url = "https://shop.mtwyouth.org/collections/literature-fiction-new"
+web_url = os.getenv("WEB_URL")
 
 #== FUNCTIONS ==
 def get_data(prompt):
@@ -15,7 +15,7 @@ def get_data(prompt):
         headers={
             "Authorization": "Bearer " + api_key,
             "Content-Type": "application/json",
-            "HTTP-Referer": "https://shop.mtwyouth.org/collections/literature-fiction-new",  # Optional
+            "HTTP-Referer": web_url,  # Optional
             "X-Title": "Book Scraper",  # Optional
         },
         data=json.dumps({
