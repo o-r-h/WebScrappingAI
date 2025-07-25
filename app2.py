@@ -5,9 +5,7 @@ import os
 
 #== CONFIGURATION ==
 url = "https://openrouter.ai/api/v1/chat/completions"
-api_key = os.getenv("QWEN_API_KEY", "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")
-
-web_url = os.getenv("WEB_URL", "https://practicesoftwaretesting.com/")
+web_url = "https://practicesoftwaretesting.com/"
 
 #== FUNCTIONS ==
 def is_even(number):
