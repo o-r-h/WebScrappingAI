@@ -1,0 +1,9 @@
+playwright
+requests
+beautifulsoup4
+openai
+python-dotenv
+pandas
+lxml
+tqdm
+cachetools
